@@ -69,6 +69,7 @@ require("lazy").setup({
     },
     { "EdenEast/nightfox.nvim" },
     { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+    { "xiyaowong/transparent.nvim" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
