@@ -21,16 +21,6 @@ require("lazy").setup({
     -- import/override with your plugins
     { import = "plugins" },
     {
-      "tiagovla/tokyodark.nvim",
-      opts = {
-        -- custom options here
-      },
-      config = function(_, opts)
-        require("tokyodark").setup(opts) -- calling setup is optional
-        vim.cmd([[colorscheme tokyodark]])
-      end,
-    },
-    {
       "kdheepak/lazygit.nvim",
       lazy = true,
       cmd = {
@@ -79,7 +69,18 @@ require("lazy").setup({
       build = "make",
       -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
       dependencies = {
-        "nvim-treesitter/nvim-treesitter",
+        {
+          "nvim-treesitter/nvim-treesitter",
+          build = ":TSUpdate",
+          config = function()
+            require("nvim-treesitter.configs").setup({
+              ensure_installed = { "vue", "typescript", "javascript" },
+              highlight = {
+                enable = true,
+              },
+            })
+          end,
+        },
         "stevearc/dressing.nvim",
         "nvim-lua/plenary.nvim",
         "MunifTanjim/nui.nvim",
@@ -113,8 +114,11 @@ require("lazy").setup({
         },
       },
     },
-    { "EdenEast/nightfox.nvim" },
-    { "bluz71/vim-moonfly-colors", name = "moonfly", lazy = false, priority = 1000 },
+    {
+      "scottmckendry/cyberdream.nvim",
+      lazy = false,
+      priority = 1000,
+    },
     { "xiyaowong/transparent.nvim" },
     { "sbdchd/neoformat" },
   },
