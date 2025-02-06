@@ -71,6 +71,7 @@ require("lazy").setup({
     },
     { "xiyaowong/transparent.nvim" },
     { "sbdchd/neoformat" },
+    { "shortcuts/no-neck-pain.nvim" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.
