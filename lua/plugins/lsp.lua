@@ -25,6 +25,7 @@ return {
         html = {},
         cssls = {},
         eslint = {},
+        tflint = {},
         ruby_lsp = {
           mason = false,
           cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
@@ -56,6 +57,10 @@ return {
         -- rubocop for Ruby diagnostics (linting) and formatting
         null_ls.builtins.diagnostics.rubocop,
         null_ls.builtins.formatting.rubocop,
+
+        null_ls.builtins.formatting.terraform_fmt,
+        null_ls.builtins.formatting.terrafmt, -- markdown
+        null_ls.builtins.diagnostics.terraform_validate,
       })
 
       -- Set formatting on save

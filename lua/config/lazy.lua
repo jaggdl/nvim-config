@@ -38,6 +38,14 @@ require("lazy").setup({
       },
     },
     {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function(_, opts)
+        if type(opts.ensure_installed) == "table" then
+          vim.list_extend(opts.ensure_installed, { "terraform", "hcl" })
+        end
+      end,
+    },
+    {
       "f-person/git-blame.nvim",
       event = "VeryLazy",
       opts = {
