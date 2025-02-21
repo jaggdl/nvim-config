@@ -25,6 +25,15 @@ return {
         html = {},
         cssls = {},
         eslint = {},
+        ruby_lsp = {
+          mason = false,
+          cmd = { vim.fn.expand("~/.asdf/shims/ruby-lsp") },
+        },
+        rubocop = {
+          cmd = { "bundle", "exec", "rubocop", "--lsp" },
+          filetypes = { "ruby" },
+          root_dir = require("lspconfig.util").root_pattern("Gemfile", ".git"),
+        },
       },
     },
   },
@@ -44,9 +53,12 @@ return {
         null_ls.builtins.formatting.stylua,
         -- clang_format for C/C++
         null_ls.builtins.formatting.clang_format,
+        -- rubocop for Ruby diagnostics (linting) and formatting
+        null_ls.builtins.diagnostics.rubocop,
+        null_ls.builtins.formatting.rubocop,
       })
 
-      -- Set formatting on save if you like
+      -- Set formatting on save
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       null_ls.setup({
         on_attach = function(client, bufnr)
