@@ -70,6 +70,10 @@ require("lazy").setup({
     { "xiyaowong/transparent.nvim" },
     -- Removed: { "sbdchd/neoformat" },
     { "shortcuts/no-neck-pain.nvim" },
+    {
+      "nelstrom/vim-textobj-rubyblock",
+      dependencies = { "kana/vim-textobj-user" },
+    },
   },
   defaults = {
     lazy = false,
