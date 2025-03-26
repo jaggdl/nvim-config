@@ -32,6 +32,7 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         javascript = { "prettier" },
+        javascriptreact = { "prettier" },
         json = { "prettier" },
         vue = { "prettier" },
         html = { "prettier" },
