@@ -1,32 +1,54 @@
 return {
   {
-
     "williamboman/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "stylua",
+        "tailwindcss-language-server",
+        "vue-language-server",
+        "rubocop",
+        "ruby-lsp",
+        "css-lsp",
+        "eslint-lsp",
+        "html-lsp",
+        "json-lsp",
+        "nginx-language-server",
+        "prettier",
+        "tflint",
+        "erb-formatter",
+        "erb-lint",
+      },
+    },
+  },
+  {
     "williamboman/mason-lspconfig.nvim",
   },
   {
     "neovim/nvim-lspconfig",
     opts = {
       servers = {
-        -- For Typescript/Vue setup
-        tsserver = {
-          on_attach = function(client, bufnr)
-            -- your custom on_attach here
-          end,
-          capabilities = {}, -- your custom capabilities
-          init_options = {
-            plugins = {},
-          },
-          filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact" },
-        },
         volar = {
           filetypes = { "vue" },
         },
-        -- Other servers like html, cssls, eslint
         html = {},
         cssls = {},
         eslint = {},
         tflint = {},
+      },
+    },
+  },
+  {
+    "stevearc/conform.nvim",
+    opts = {
+      formatters_by_ft = {
+        lua = { "stylua" },
+        javascript = { "prettier" },
+        json = { "prettier" },
+        vue = { "prettier" },
+        html = { "prettier" },
+        css = { "prettier" },
+        eruby = { "erb_format" },
+        ruby = { "rubocop" },
       },
     },
   },
