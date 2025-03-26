@@ -25,17 +25,6 @@ return {
   },
   {
     "neovim/nvim-lspconfig",
-    opts = {
-      servers = {
-        volar = {
-          filetypes = { "vue" },
-        },
-        html = {},
-        cssls = {},
-        eslint = {},
-        tflint = {},
-      },
-    },
   },
   {
     "stevearc/conform.nvim",
