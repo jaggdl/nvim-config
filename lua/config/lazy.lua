@@ -5,7 +5,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
   if vim.v.shell_error ~= 0 then
     vim.api.nvim_echo({
       { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-      { out, "WarningMsg" },
+      { out,                            "WarningMsg" },
       { "\nPress any key to exit..." },
     }, true, {})
     vim.fn.getchar()
@@ -41,7 +41,7 @@ require("lazy").setup({
       "nvim-treesitter/nvim-treesitter",
       opts = function(_, opts)
         if type(opts.ensure_installed) == "table" then
-          vim.list_extend(opts.ensure_installed, { "terraform", "hcl" })
+          vim.list_extend(opts.ensure_installed, { "terraform", "hcl", "elixir", "eex", "heex" })
         end
       end,
     },
@@ -68,8 +68,6 @@ require("lazy").setup({
       end,
     },
     { "xiyaowong/transparent.nvim" },
-    -- Removed: { "sbdchd/neoformat" },
-    { "shortcuts/no-neck-pain.nvim" },
     {
       "nelstrom/vim-textobj-rubyblock",
       dependencies = { "kana/vim-textobj-user" },
